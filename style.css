@@ -1,0 +1,27 @@
+head{
+    text-align: center;
+}
+
+body{
+    margin:0;
+    background: linear-gradient(to right, pink 50%,purple 100%);
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    
+}
+
+h1{
+   color: rgb(64, 24, 102);
+   text-align: center;
+ }
+
+ p{
+    text-align: center;
+ }
+
+ header{
+    text-align: center;
+ }
+
+ Section{
+    text-align: center;
+ }
