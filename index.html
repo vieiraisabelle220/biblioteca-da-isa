@@ -4,21 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Livros</title>
-    <Link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        #resultado {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        #resultado.certo {
+            color: green;
+        }
+        #resultado.errado {
+            color: red;
+        }
+    </style>
 </head>    
 
 <body>
     <header>
         <span style="font-weight: bold; font-size: 2.5rem;">Livros</span>
-        <p><strong>Mostre sua opnião</strong></p>
+        <p><strong>Mostre sua opinião</strong></p>
     </header>
 
     <main>
         <section>
-            <h1>Bem-vindos a biblioteca!</h1>
-
+            <h1>Bem-vindos à biblioteca!</h1>
             <p>Este é um site para leitores!</p>
-
             <img src="dicas-para-organizar-o-acervo-da-biblioteca.png" alt="Error" width="200" height="100">
         </section>
 
@@ -39,18 +53,18 @@
 
         <section>
             <h2>Pergunta</h2>
-            <p>Qual livro a protagoninsta se chama Feyre?</p>
-            <form>
-                <input type="text" name="ptxt" id="pergunta-texto">
+            <p>Qual livro a protagonista se chama Feyre?</p>
+            <form id="form-pergunta">
+                <input type="text" name="ptxt" id="pergunta-texto" placeholder="Digite sua resposta...">
+                <button type="submit">Verificar</button>
             </form>
+            <p id="resultado"></p>
         </section>
 
         <section>
             <h2>Pense bem</h2>
             <p>Qual seu personagem preferido?</p>
-            <form>
-                <input type="password" name="pswd" id="senha-cartao">
-            </form>
+           
         </section>
 
         <section>
@@ -78,7 +92,7 @@
                     <option value="none">Selecione</option>
                     <option value="Neymar">Estilhaça-me</option>
                     <option value="Cr7">Amor por engano</option>
-                    <option value="Messi">a seleção</option>
+                    <option value="Messi">A Seleção</option>
                 </select>
             </form>
         </section>
@@ -86,11 +100,7 @@
         <section>
             <details>
                 <summary>Quer saber como criar um site incrível como o meu?</summary>
-                <p>
-                faça curso na Vocação
-                </p>
-            
-                   
+                <p>Faça curso na Vocação!</p>
             </details>
         </section>
     </main>
@@ -98,5 +108,26 @@
     <footer>
         <p>&copy; Tchau Leitores, até a próxima!</p>
     </footer>
+
+    <script>
+        document.getElementById('form-pergunta').addEventListener('submit', function(event) {
+            event.preventDefault(); // impede o reload da página
+
+            const resposta = document.getElementById('pergunta-texto').value.trim().toLowerCase();
+            const resultado = document.getElementById('resultado');
+
+            if (resposta === "corte de espinhos e rosas" || resposta === "a corte de espinhos e rosas") {
+                resultado.textContent = "✅ Resposta certa! Feyre é a protagonista de 'Corte de Espinhos e Rosas'.";
+                resultado.className = "certo";
+            } else if (resposta === "") {
+                resultado.textContent = "⚠️ Digite uma resposta!";
+                resultado.className = "errado";
+            } else {
+                resultado.textContent = "❌ Resposta errada! Tente novamente.";
+                resultado.className = "errado";
+            }
+        });
+    </script>
 </body>
+</html>
 </html>
